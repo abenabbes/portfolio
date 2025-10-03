@@ -283,19 +283,19 @@
                 <!-- Formulaire de réservation -->
                 <div class="bg-white p-8 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-bold mb-6 text-secondary">Réserver une table</h3>
-                    <form class="space-y-4">
+                    <form id="form-contact" class="space-y-4" action="https://formspree.io/f/mdkwzrod" method="post">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Nom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                            <input type="text" placeholder="Prénom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="nom" type="text" placeholder="Nom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="prenom" type="text" placeholder="Prénom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
-                        <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <input type="tel" placeholder="Téléphone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <input name="_replyto" type="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <input name="tel" type="tel" placeholder="Téléphone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                            <input type="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="date" type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="time" type="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <select name="nbrpers" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                                     <option value="">Nombre de personnes</option>
                                     <option value="1">1 personne</option>
                                     <option value="2">2 personnes</option>
