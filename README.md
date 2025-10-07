@@ -1,8 +1,13 @@
-# Test la mise en place de la solution d'envoie d'émail suite à une réservation ou nous contacter
-# avec l'outil EmailJS : 
-#
-# EmailJS permet d'envoyer l'e-mail avec JavaScript sur un site, 
-# ce qui donne un contrôle total sur l'interface utilisateur après l'envoi.
+# #################################################################
+Ce site est généré avec l'outils no-code https://deepsiteai.com/
+# #################################################################
+
+A) Test la mise en place de la solution d'envoie d'émail 
+
+l'outil choisie est : EmailJS : 
+
+ EmailJS permet d'envoyer l'e-mail avec JavaScript sur un site, 
+ ce qui donne un contrôle total sur l'interface utilisateur après l'envoi.
 
 Guide d'intégration avec EmailJS (Contrôle total)
 1. Configuration EmailJS :

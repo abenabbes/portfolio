@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Éveil & Parenthèse — Soutien à la parentalité & Ateliers petite enfance</title>
+  <meta name="description" content="Éveil & Parenthèse — Ateliers petite enfance, formations pour professionnelles et soutien à la parentalité. Accompagnement bienveillant pour familles et pros." />
+  <style>
+    :root{
+      --bg: #fbf8f5;
+      --card: #fff;
+      --accent: #9bbf9b; /* vert sauge */
+      --accent-2: #f5d6d9; /* rose poudré */
+      --muted: #7a7a78;
+      --beige: #efe6dc;
+      --soft-shadow: 0 6px 20px rgba(26, 26, 26, 0.08);
+      --radius: 14px;
+      --container: 1100px;
+      --focus: 3px solid rgba(155,191,155,0.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, 'Segoe UI', Tahoma, system-ui, -apple-system, 'Helvetica Neue', Arial;
+      background:linear-gradient(180deg, var(--bg), #fff 60%);
+      color:#263238;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* layout */
+    .wrap{max-width:var(--container);margin:0 auto;padding:28px}
+
+    header{
+      position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(40,40,40,0.03)
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:var(--container);margin:0 auto;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-badge{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:var(--soft-shadow)}
+    .site-title{font-weight:700;font-size:18px}
+    nav{--gap:22px}
+    .menu{list-style:none;display:flex;gap:var(--gap);align-items:center;margin:0;padding:0}
+    .menu a{color:#263238;font-weight:600;padding:10px 8px;border-radius:8px}
+    .menu a:hover{background:var(--beige)}
+
+    /* dropdown */
+    .has-sub{position:relative}
+    .sub{position:absolute;left:0;top:calc(100% + 10px);background:var(--card);min-width:260px;border-radius:10px;box-shadow:var(--soft-shadow);padding:8px;display:none;flex-direction:column;gap:6px}
+    .sub a{padding:10px;border-radius:8px;color:#263238}
+    .has-sub:focus-within .sub,.has-sub:hover .sub{display:flex}
+
+    /* mobile menu */
+    .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+    .burger div{width:26px;height:3px;background:#263238;margin:5px 0;border-radius:3px}
+    @media (max-width:880px){
+      .menu{display:none;position:absolute;left:12px;right:12px;top:74px;background:var(--card);flex-direction:column;padding:12px;border-radius:12px;box-shadow:var(--soft-shadow)}
+      .menu.show{display:flex}
+      .burger{display:block}
+      .nav-inner{padding:8px 12px}
+    }
+
+    /* Hero */
+    .hero{padding:44px 20px;border-radius:18px;background:linear-gradient(180deg, rgba(155,191,155,0.12), rgba(245,214,217,0.08));margin:22px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center}
+    .hero h1{font-size:28px;margin-bottom:12px}
+    .hero p{color:var(--muted);margin-bottom:18px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn.alt{background:transparent;border:2px solid rgba(155,191,155,0.18);color:var(--accent);font-weight:700}
+
+    /* services summary */
+    .services-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:12px}
+    .service-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--soft-shadow)}
+    .service-card h3{margin-bottom:8px}
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* sections */
+    section{padding:40px 0}
+    h2.section-title{font-size:22px;color:var(--accent);text-align:center;margin-bottom:18px}
+
+    .grid-2{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--soft-shadow)}
+
+    /* team */
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .member{display:flex;gap:12px;align-items:center}
+    .avatar{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,#f6e3e6,#cfe8d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#274046}
+
+    /* detail pages */
+    .detail{line-height:1.6}
+    .detail h3{margin-top:6px}
+    .meta{font-size:0.95rem;color:var(--muted);margin-bottom:12px}
+
+    /* contact form */
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-weight:600;font-size:0.95rem;margin-bottom:6px}
+    input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e3e3e3;background:#fff;font-size:1rem}
+    textarea{min-height:120px;resize:vertical}
+    .checkboxes{display:flex;gap:10px;flex-wrap:wrap}
+    .small{font-size:0.9rem;color:var(--muted)}
+
+    /* footer */
+    footer{padding:30px 0;text-align:center;color:var(--muted);border-top:1px solid rgba(40,40,40,0.03);margin-top:34px}
+
+    /* utility */
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* focus */
+    a:focus,input:focus,button:focus,select:focus,textarea:focus{outline:none;box-shadow:var(--focus)}
+
+    @media (max-width:960px){
+      .hero-grid,.grid-2{grid-template-columns:1fr}
+      .hero{padding:24px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-badge">É&</div>
+        <div>
+          <div class="site-title">Éveil & Parenthèse</div>
+          <div class="small">Soutien | Ateliers | Formations</div>
+        </div>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu">
+        <div></div><div></div><div></div>
+      </button>
+
+      <nav>
+        <ul class="menu" id="menu">
+          <li><a href="#accueil" data-target="accueil">Accueil</a></li>
+
+          <li class="has-sub">
+            <a href="#ateliers" data-target="ateliers">Ateliers petite enfance ▾</a>
+            <div class="sub" role="menu">
+              <a href="#atelier-artistique" data-target="atelier-artistique">Atelier artistique et sensoriel</a>
+              <a href="#atelier-lecture" data-target="atelier-lecture">Atelier lecture</a>
+              <a href="#atelier-snoezelen" data-target="atelier-snoezelen">Atelier Snoezelen</a>
+              <a href="#atelier-massage" data-target="atelier-massage">Atelier massage bébé</a>
+            </div>
+          </li>
+
+          <li><a href="#formation" data-target="formation">Formation pour les professionnelles</a></li>
+
+          <li class="has-sub">
+            <a href="#soutien" data-target="soutien">Soutien à la parentalité ▾</a>
+            <div class="sub" role="menu">
+              <a href="#consultation" data-target="consultation">Consultation individuelle en visio</a>
+              <a href="#postnatal" data-target="postnatal">Accompagnement post-natal à domicile</a>
+              <a href="#groupe" data-target="groupe">Animation groupe d'échange</a>
+            </div>
+          </li>
+
+          <li><a href="#contact" data-target="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO / Accueil -->
+    <section id="accueil" class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title">Un accompagnement bienveillant pour les familles et les professionnelles</h1>
+          <p>Éveil & Parenthèse propose des ateliers d'éveil, des formations spécialisées et un soutien à la parentalité fondé sur l'écoute et des méthodes pratiques. Nous mettons l'humain et la présence au centre de notre action.</p>
+
+          <div class="cta-row">
+            <button class="btn" onclick="navigateTo('contact')">Nous contacter</button>
+            <button class="btn alt" onclick="navigateTo('ateliers')">Voir les ateliers</button>
+          </div>
+
+          <div class="services-summary" style="margin-top:18px">
+            <div class="service-card">
+              <h3>Ateliers petite enfance</h3>
+              <p class="muted">Activités sensorielles, lecture, Snoezelen et massage bébé pour l'éveil et le lien.</p>
+            </div>
+            <div class="service-card">
+              <h3>Formation professionnelle</h3>
+              <p class="muted">Modules pratiques pour professionnelles de la petite enfance : posture, sécurité affective et activités adaptées.</p>
+            </div>
+            <div class="service-card">
+              <h3>Soutien à la parentalité</h3>
+              <p class="muted">Consultations en visio, accompagnement post-natal et groupes d'échange pour mieux traverser les premières étapes.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3>Pourquoi nous choisir ?</h3>
+          <p class="muted">Une approche humaine, des intervenantes diplômées et une attention particulière au rythme de chaque enfant et famille.</p>
+          <ul style="margin-top:12px;list-style:disc;padding-left:18px;color:var(--muted)">
+            <li>Approche basée sur la bienveillance</li>
+            <li>Groupes à taille réduite</li>
+            <li>Programmes adaptés par tranche d'âge</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ATELIERS (page) -->
+    <section id="ateliers" class="container" aria-labelledby="ateliers-title">
+      <h2 class="section-title" id="ateliers-title">Ateliers Petite Enfance</h2>
+      <div class="grid-2">
+        <div>
+          <p class="muted">Des ateliers conçus pour stimuler l'éveil, le langage, le toucher et la créativité dans un cadre sécurisant.</p>
+
+          <div class="card detail" id="atelier-artistique">
+            <h3>Atelier artistique et sensoriel</h3>
+            <p class="meta">Objectifs • Modalités</p>
+            <p>Objectifs : Favoriser l'expression créative, développer la motricité fine et l'exploration sensorielle.</p>
+            <p>Modalités : Ateliers hebdomadaires (45 min) en petits groupes, matériel adapté, espace sécurisé. Parents accompagnants les tout-petits selon l'âge.</p>
+          </div>
+
+          <div class="card detail" style="margin-top:12px" id="atelier-lecture">
+            <h3>Atelier lecture</h3>
+            <p class="meta">Objectifs • Modalités</p>
+            <p>Objectifs : Stimuler le langage et l'imaginaire, instaurer un rituel de lecture partagé.</p>
+            <p>Modalités : Sessions thématiques (30–40 min), comptines et lectures interactives, conseils parents pour prolonger à la maison.</p>
+          </div>
+
+          <div class="card detail" style="margin-top:12px" id="atelier-snoezelen">
+            <h3>Atelier Snoezelen</h3>
+            <p class="meta">Objectifs • Modalités</p>
+            <p>Objectifs : Offrir un espace de détente et de stimulation sensorielle douce pour apaiser et éveiller.</p>
+            <p>Modalités : Séances en petit groupe, ambiance tamisée, outils sensoriels, durée adaptée selon les besoins.</p>
+          </div>
+
+          <div class="card detail" style="margin-top:12px" id="atelier-massage">
+            <h3>Atelier massage bébé</h3>
+            <p class="meta">Objectifs • Modalités</p>
+            <p>Objectifs : Renforcer le lien parent-enfant, apprendre des techniques de massage favorisant le sommeil et la détente.</p>
+            <p>Modalités : Atelier pratique (45–60 min), démonstrations et pratique guidée, support écrit et vidéos de rappel.</p>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3>Public & Tarifs</h3>
+          <p class="muted">Ateliers adaptés selon tranche d'âge. Tarifs variables selon la formule (session unique, cycle 6 semaines, abonnement).</p>
+          <p class="small" style="margin-top:10px">Pour connaître les prochaines dates, contactez-nous via le formulaire.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FORMATION -->
+    <section id="formation" class="container">
+      <h2 class="section-title">Formation pour les professionnelles de la petite enfance</h2>
+      <div class="grid-2">
+        <div>
+          <p class="muted">Formations courtes et certifiantes pour structures d'accueil, assistantes maternelles et équipes éducatives.</p>
+          <div class="card detail">
+            <h3>Exemples de modules</h3>
+            <ul style="padding-left:18px;color:var(--muted)">
+              <li>Posture professionnelle et communication non-violente</li>
+              <li>Activités d'éveil sensorielles et artistiques</li>
+              <li>Accompagnement des familles et repères post-nataux</li>
+              <li>Prévention et sécurité affective</li>
+            </ul>
+            <p style="margin-top:10px">Modalités : Formations en présentiel ou distanciel, alternance théorie/pratique, supports fournis et évaluation finale.</p>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3>Intervenantes</h3>
+          <p class="muted">Des formatrices expérimentées, éducatrices de jeunes enfants et puéricultrices, engagées dans la qualité d'accueil et la bientraitance.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SOUTIEN -->
+    <section id="soutien" class="container">
+      <h2 class="section-title">Soutien à la parentalité</h2>
+      <div class="cards">
+        <div class="card detail" id="consultation">
+          <h3>Consultation individuelle en visio</h3>
+          <p class="meta">Objectifs • Modalités</p>
+          <p>Objectifs : Proposer un espace d'écoute professionnelle, co-construire des solutions pratiques et réassurance parentale.</p>
+          <p>Modalités : Séance de 45 min via visio, bilan et pistes d'accompagnement, possibilité de suivi régulier.</p>
+        </div>
+
+        <div class="card detail" id="postnatal">
+          <h3>Accompagnement post-natal à domicile</h3>
+          <p class="meta">Objectifs • Modalités</p>
+          <p>Objectifs : Soutien concret à la parentalité dans les premières semaines : routines, sommeil, alimentation, organisation.</p>
+          <p>Modalités : Visites à domicile, observation bienveillante, conseils pratiques et relais vers ressources locales.</p>
+        </div>
+
+        <div class="card detail" id="groupe">
+          <h3>Animation groupe d'échange</h3>
+          <p class="meta">Objectifs • Modalités</p>
+          <p>Objectifs : Créer des espaces sécurisés pour partager, normaliser les expériences et renforcer les réseaux de soutien.</p>
+          <p>Modalités : Sessions thématiques en petit groupe (1h30), animation guidée, confidentialité et bienveillance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUI SOMMES-NOUS -->
+    <section id="about" class="container">
+      <h2 class="section-title">Qui sommes‑nous ?</h2>
+      <div class="grid-2">
+        <div>
+          <p class="muted">Éveil & Parenthèse a été fondée par une professionnelle de la petite enfance animée par la volonté d'accompagner parents et professionnels avec chaleur et rigueur.</p>
+
+          <div class="team" style="margin-top:12px">
+            <div class="member card">
+              <div class="avatar">LF</div>
+              <div>
+                <strong>Laura Fernandez</strong>
+                <div class="small muted">Fondatrice — Éducatrice de jeunes enfants</div>
+                <div class="small" style="margin-top:6px">Laura accompagne parents et équipes depuis 10 ans, spécialisée en éveil sensoriel et soutien post-natal.</div>
+              </div>
+            </div>
+
+            <div class="member card">
+              <div class="avatar">MC</div>
+              <div>
+                <strong>Mathilde C.</strong>
+                <div class="small muted">Formatrice & Puéricultrice</div>
+                <div class="small" style="margin-top:6px">Intervenante en crèches et formations professionnelles, passionnée par la bientraitance et la pédagogie active.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3>Notre approche</h3>
+          <p class="muted">Allier compétences professionnelles et chaleur humaine. Chaque proposition est co-construite avec les familles et les structures pour être pertinente et réaliste.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid-2">
+        <div>
+          <p class="muted">Pour toute demande, renseignement ou réservation, utilisez le formulaire ci-dessous ou écrivez-nous à <strong>contact@eveiletparenthese.example</strong>.</p>
+
+          <form id="contactForm" class="card" novalidate>
+            <div class="form-row">
+              <div>
+                <label for="nom">Nom</label>
+                <input id="nom" name="nom" type="text" required />
+              </div>
+              <div>
+                <label for="prenom">Prénom</label>
+                <input id="prenom" name="prenom" type="text" required />
+              </div>
+            </div>
+
+            <div class="form-row" style="margin-top:12px">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div>
+                <label for="tel">Téléphone</label>
+                <input id="tel" name="tel" type="tel" />
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="statut">Vous êtes</label>
+              <select id="statut" name="statut">
+                <option value="particulier">Particulier</option>
+                <option value="entreprise">Entreprise</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div id="autre-wrapper" style="display:none;margin-top:10px">
+              <label for="autre-preciser">Précisez</label>
+              <input id="autre-preciser" name="autre_preciser" type="text" />
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="objectif">Objectif (résumé)</label>
+              <textarea id="objectif" name="objectif" placeholder="Ex: renseignement atelier, formation, demande post-natale..." required></textarea>
+            </div>
+
+            <div style="margin-top:12px;display:flex;gap:10px;align-items:center;justify-content:flex-end">
+              <button type="submit" class="btn">Envoyer</button>
+              <button type="button" class="btn alt" onclick="document.getElementById('contactForm').reset()">Réinitialiser</button>
+            </div>
+
+            <p id="formMessage" class="small muted" style="margin-top:10px;display:none"></p>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h3>Informations pratiques</h3>
+          <p class="muted">Adresse : 12 rue des Tulipes — Ville
+            <br/>Téléphone : 06 00 00 00 00
+            <br/>Email : contact@eveiletparenthese.example
+          </p>
+          <p class="small">Horaires : du lundi au vendredi — 9h à 17h. Possibilité d'interventions en soirée selon disponibilité.</p>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div style="margin-bottom:8px">© 2025 Éveil & Parenthèse — Tous droits réservés</div>
+        <div class="small muted">Site statique prêt à être hébergé sur GitHub Pages</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', ()=>{menu.classList.toggle('show')});
+
+    // Navigation helper
+    function navigateTo(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+      if(menu.classList.contains('show')) menu.classList.remove('show');
+    }
+
+    // Smooth anchor links
+    document.querySelectorAll('a[data-target]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const target = a.getAttribute('data-target');
+        navigateTo(target);
+      })
+    });
+
+    // Contact form behaviour (client-side simulated submit)
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('formMessage');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      // basic validation
+      if(!form.nom.value || !form.prenom.value || !form.email.value || !form.objectif.value){
+        msg.style.display='block';
+        msg.textContent='Veuillez remplir tous les champs obligatoires.';
+        return;
+      }
+      // simulate send
+      msg.style.display='block';
+      msg.style.color='green';
+      msg.textContent='Merci ! Votre message a bien été reçu. Nous revenons vers vous rapidement.';
+      form.reset();
+    });
+
+    // show/hide "autre" precisor
+    const statut = document.getElementById('statut');
+    const autreWrapper = document.getElementById('autre-wrapper');
+    statut.addEventListener('change', ()=>{
+      autreWrapper.style.display = statut.value === 'autre' ? 'block' : 'none';
+    });
+
+    // optional: deep-link on load
+    const hash = location.hash.replace('#','');
+    if(hash){
+      const el = document.getElementById(hash);
+      if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),120);
+    }
+  </script>
+</body>
+</html>

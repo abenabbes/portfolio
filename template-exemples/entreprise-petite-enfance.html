@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petits Pas - Entreprise Petite Enfance</title>
+    <meta name="description" content="Accompagnement bienveillant pour les enfants et les familles - Ateliers, formations professionnelles et soutien à la parentalité">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'parentalite': '#93c5fd',
+                        'ateliers': '#fbcfe8',
+                        'formation': '#d8b4fe',
+                        'primary': '#4f46e5',
+                        'secondary': '#7e22ce'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+	<!-- Script EmailJS : pour intéger l'envoi de mail -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<script type="text/javascript">
+	   (function() {
+		  // Initialiser avec votre Public Key
+		  emailjs.init({
+			 publicKey: "308KNvDrpU6XfF-Ky",
+		  });
+	   })();
+	</script>
+	<script type="text/javascript">
+		// Attendre que le document soit chargé
+		window.onload = function() {
+			// Cibler votre formulaire par son ID
+			document.getElementById('contactForm').addEventListener('submit', function(event) {
+				event.preventDefault(); // EMPÊCHE la soumission HTML par défaut (et la redirection Formspree !)
+
+				// Envoyer le formulaire avec EmailJS
+				// emailjs.sendForm('VOTRE_SERVICE_ID', 'VOTRE_TEMPLATE_ID', this)
+				emailjs.sendForm('service_s8xelha', 'template_pfxbnlb', this)
+					.then(function() {
+						console.log('E-mail envoyé avec succès !');
+
+						// **********************************************
+						// C'EST ICI QUE VOUS FAITES LA REDIRECTION !
+						// **********************************************
+						window.location.href = 'https://abenabbes.github.io/portfolio/remerciment.html';
+						
+					}, function(error) {
+						console.log('ÉCHEC de l\'envoi...', error);
+						// Optionnel : Afficher un message d'erreur
+						alert("Une erreur est survenue lors de l'envoi.");
+					});
+			});
+		}
+	</script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-white font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-lg">
+                        PP
+                    </div>
+                    <span class="text-xl font-semibold text-gray-800">Petits Pas</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors">Accueil</a>
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-primary font-medium transition-colors flex items-center">
+                            Ateliers petite enfance <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="#atelier-artistique" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier artistique et sensoriel</a>
+                            <a href="#atelier-lecture" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier lecture</a>
+                            <a href="#atelier-snoezelen" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier Snoezelen</a>
+                            <a href="#atelier-massage" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier massage bébé</a>
+                        </div>
+                    </div>
+                    <a href="#formation" class="text-gray-700 hover:text-primary font-medium transition-colors">Formation pour les pros</a>
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-primary font-medium transition-colors flex items-center">
+                            Soutien à la parentalité <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="#consultation-visio" class="block px-4 py-3 text-gray-700 hover:bg-parentalite hover:text-primary transition-colors">Consultation individuelle en visio</a>
+                            <a href="#accompagnement-postnatal" class="block px-4 py-3 text-gray-700 hover:bg-parentalite hover:text-primary transition-colors">Accompagnement post-natal à domicile</a>
+                            <a href="#groupe-echange" class="block px-4 py-3 text-gray-700 hover:bg-parentalite hover:text-primary transition-colors">Animation groupe d'échange</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-secondary transition-colors font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="accueil" class="bg-gradient-to-br from-blue-50 to-purple-50 py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Bienvenue chez Petits Pas</h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles. 
+                        Nous accompagnons les enfants dans leur développement et les parents dans leur rôle avec bienveillance et expertise.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#ateliers" class="bg-ateliers text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-pink-300 transition-colors">
+                            Découvrir nos ateliers
+                        </a>
+                        <a href="#formation" class="bg-formation text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-purple-300 transition-colors">
+                            Formations professionnelles
+                        </a>
+                        <a href="#parentalite" class="bg-parentalite text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-blue-300 transition-colors">
+                            Soutien parentalité
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Sections -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Ateliers Card -->
+                    <div id="ateliers" class="bg-ateliers/20 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-ateliers rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-palette text-2xl text-gray-700"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Ateliers Petite Enfance</h3>
+                            <img src="https://picsum.photos/400/300?random=10" alt="Enfants participant à des activités créatives" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Des ateliers ludiques et éducatifs pour stimuler l'éveil et le développement de votre enfant dans un environnement sécurisé et bienveillant.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-ateliers mr-3"></i>
+                                <span>Atelier artistique et sensoriel</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-ateliers mr-3"></i>
+                                <span>Atelier lecture</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-ateliers mr-3"></i>
+                                <span>Atelier Snoezelen</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-ateliers mr-3"></i>
+                                <span>Atelier massage bébé</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formation Card -->
+                    <div id="formation" class="bg-formation/20 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-formation rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-graduation-cap text-2xl text-gray-700"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Formation Professionnelle</h3>
+                            <img src="https://picsum.photos/400/300?random=11" alt="Professionnels de la petite enfance en formation" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Perfectionnez vos compétences avec nos formations spécialisées pour les professionnels de la petite enfance.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-star text-formation mr-3"></i>
+                                <span>Approches pédagogiques innovantes</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-star text-formation mr-3"></i>
+                                <span>Développement de l'enfant</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-star text-formation mr-3"></i>
+                                <span>Gestion des émotions</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-star text-formation mr-3"></i>
+                                <span>Certifications reconnues</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parentalité Card -->
+                    <div id="parentalite" class="bg-parentalite/20 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-parentalite rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-heart text-2xl text-gray-700"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Soutien à la Parentalité</h3>
+                            <img src="https://picsum.photos/400/300?random=12" alt="Famille partageant un moment de complicité" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Un accompagnement personnalisé pour vous soutenir dans votre rôle de parent et renforcer les liens familiaux.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-comments text-parentalite mr-3"></i>
+                                <span>Consultation individuelle en visio</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-home text-parentalite mr-3"></i>
+                                <span>Accompagnement post-natal à domicile</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-users text-parentalite mr-3"></i>
+                                <span>Animation groupe d'échange</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Notre Équipe</h2>
+                    <p class="text-lg text-gray-600">Des professionnels passionnés et expérimentés à votre service</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <img src="https://picsum.photos/200/200?random=20" alt="Marie Dubois - Fondatrice et éducatrice spécialisée" class="w-32 h-32 rounded-full object-cover" loading="lazy">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Marie Dubois</h3>
+                            <p class="text-primary font-medium mb-3">Fondatrice & Éducatrice Spécialisée</p>
+                            <p class="text-gray-600 leading-relaxed">
+                                Forte de 15 ans d'expérience dans le domaine de la petite enfance, Marie a créé Petits Pas avec la conviction que chaque enfant mérite un accompagnement bienveillant et personnalisé. Diplômée en psychologie de l'enfant et formée aux approches sensorielles, elle met son expertise au service des familles et des professionnels.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
+                        <p class="text-lg text-gray-600">Nous sommes à votre écoute pour répondre à toutes vos questions</p>
+                    </div>
+                    <form id="contactForm" class="bg-gray-50 rounded-2xl p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="nom" class="block text-gray-700 font-medium mb-2">Nom *</label>
+                                <input type="text" id="nom" name="nom" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            </div>
+                            <div>
+                                <label for="prenom" class="block text-gray-700 font-medium mb-2">Prénom *</label>
+                                <input type="text" id="prenom" name="prenom" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            </div>
+                            <div>
+                                <label for="telephone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="statut" class="block text-gray-700 font-medium mb-2">Vous êtes *</label>
+                            <select id="statut" name="statut" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                                <option value="">Sélectionnez votre statut</option>
+                                <option value="entreprise">Entreprise</option>
+                                <option value="particulier">Particulier</option>
+                                <option value="autre">Autre (à préciser)</option>
+                            </select>
+                        </div>
+                        <div class="mb-6" id="autre-precision" style="display: none;">
+                            <label for="precision" class="block text-gray-700 font-medium mb-2">Précisez votre statut</label>
+                            <input type="text" id="precision" name="precision" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="Votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                            PP
+                        </div>
+                        <span class="text-xl font-semibold">Petits Pas</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles depuis 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-300 hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#ateliers" class="text-gray-300 hover:text-white transition-colors">Ateliers</a></li>
+                        <li><a href="#formation" class="text-gray-300 hover:text-white transition-colors">Formation</a></li>
+                        <li><a href="#parentalite" class="text-gray-300 hover:text-white transition-colors">Parentalité</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Coordonnées</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>123 Rue de l'Enfance, 75000 Paris</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>01 23 45 67 89</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>contact@petitspas.fr</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Petits Pas - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Statut selection handling
+        const statutSelect = document.getElementById('statut');
+        const autrePrecision = document.getElementById('autre-precision');
+
+        statutSelect.addEventListener('change', function() {
+            if (this.value === 'autre') {
+                autrePrecision.style.display = 'block';
+            } else {
+                autrePrecision.style.display = 'none';
+            }
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous recontacterons très rapidement.');
+            this.reset();
+            autrePrecision.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
