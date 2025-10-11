@@ -8,6 +8,7 @@
     <meta name="description" content="Accompagnement bienveillant pour les enfants et les familles - Ateliers, formations professionnelles et soutien à la parentalité">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="site.css">
     <script>
         tailwind.config = {
             theme: {
@@ -17,10 +18,15 @@
                         'ateliers': '#fbcfe8',
                         'formation': '#d8b4fe',
                         'primary': '#4f46e5',
-                        'secondary': '#7e22ce'
+                        'secondary': '#7e22ce',
+                        'accent': '#f59e0b'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'menu': '0 8px 30px rgba(0, 0, 0, 0.12)'
                     }
                 }
             }
@@ -65,16 +71,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen bg-white font-sans">
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+   <!-- Header -->
+    <header id="header" class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-lg">
-                        PP
+                      PP
                     </div>
-                    <span class="text-xl font-semibold text-gray-800">Petits Pas</span>
+                    
                 </div>
 
                 <!-- Desktop Navigation -->
@@ -113,267 +119,501 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section id="accueil" class="bg-gradient-to-br from-blue-50 to-purple-50 py-16">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Bienvenue chez Petits Pas</h1>
-                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles. 
-                        Nous accompagnons les enfants dans leur développement et les parents dans leur rôle avec bienveillance et expertise.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="#ateliers" class="bg-ateliers text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-pink-300 transition-colors">
-                            Découvrir nos ateliers
-                        </a>
-                        <a href="#formation" class="bg-formation text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-purple-300 transition-colors">
-                            Formations professionnelles
-                        </a>
-                        <a href="#parentalite" class="bg-parentalite text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-blue-300 transition-colors">
-                            Soutien parentalité
-                        </a>
-                    </div>
+        <section id="accueil" >
+        <div class="container mx-auto px-4">
+        <!-- Flex container for logo and content -->
+        <div class="flex flex-col md:flex-row items-center md:items-stretch max-w-4xl mx-auto">
+            
+            <!-- Logo container -->
+            <div  id ="logo" class="w-full md:w-1/4 flex justify-center md:justify-start items-center md:items-stretch mb-6 md:mb-0">
+                <div class="flex items-center md:items-center h-full">
+                    <img src="img/logo_pe.png" alt="Logo" class="h-full max-h-40 object-contain" />
                 </div>
             </div>
-        </section>
 
-        <!-- Quick Access Sections -->
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Ateliers Card -->
-                    <div id="ateliers" class="bg-ateliers/20 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 bg-ateliers rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-palette text-2xl text-gray-700"></i>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Ateliers Petite Enfance</h3>
-                            <img src="https://picsum.photos/400/300?random=10" alt="Enfants participant à des activités créatives" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
-                        </div>
-                        <p class="text-gray-600 mb-6 text-center">
-                            Des ateliers ludiques et éducatifs pour stimuler l'éveil et le développement de votre enfant dans un environnement sécurisé et bienveillant.
-                        </p>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-check text-ateliers mr-3"></i>
-                                <span>Atelier artistique et sensoriel</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-check text-ateliers mr-3"></i>
-                                <span>Atelier lecture</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-check text-ateliers mr-3"></i>
-                                <span>Atelier Snoezelen</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-check text-ateliers mr-3"></i>
-                                <span>Atelier massage bébé</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Formation Card -->
-                    <div id="formation" class="bg-formation/20 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 bg-formation rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-graduation-cap text-2xl text-gray-700"></i>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Formation Professionnelle</h3>
-                            <img src="https://picsum.photos/400/300?random=11" alt="Professionnels de la petite enfance en formation" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
-                        </div>
-                        <p class="text-gray-600 mb-6 text-center">
-                            Perfectionnez vos compétences avec nos formations spécialisées pour les professionnels de la petite enfance.
-                        </p>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-star text-formation mr-3"></i>
-                                <span>Approches pédagogiques innovantes</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-star text-formation mr-3"></i>
-                                <span>Développement de l'enfant</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-star text-formation mr-3"></i>
-                                <span>Gestion des émotions</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-star text-formation mr-3"></i>
-                                <span>Certifications reconnues</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Parentalité Card -->
-                    <div id="parentalite" class="bg-parentalite/20 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 bg-parentalite rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-heart text-2xl text-gray-700"></i>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Soutien à la Parentalité</h3>
-                            <img src="https://picsum.photos/400/300?random=12" alt="Famille partageant un moment de complicité" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
-                        </div>
-                        <p class="text-gray-600 mb-6 text-center">
-                            Un accompagnement personnalisé pour vous soutenir dans votre rôle de parent et renforcer les liens familiaux.
-                        </p>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-comments text-parentalite mr-3"></i>
-                                <span>Consultation individuelle en visio</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-home text-parentalite mr-3"></i>
-                                <span>Accompagnement post-natal à domicile</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <i class="fas fa-users text-parentalite mr-3"></i>
-                                <span>Animation groupe d'échange</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Text content -->
+            <div class="w-full md:w-3/4 text-center md:text-left flex flex-col justify-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Bienvenue chez Parentalité et petite enfance Sereines
+                </h1>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <a href="#ateliers-section" class="bg-ateliers text-gray-800 px-4 py-2 rounded-lg font-medium hover:bg-pink-300 transition-colors text-sm">
+                        Découvrir nos ateliers
+                    </a>
+                    <a href="#formation-section" class="bg-formation text-gray-800 px-4 py-2 rounded-lg font-medium hover:bg-purple-300 transition-colors text-sm">
+                        Formations pro
+                    </a>
+                    <a href="#parentalite-section" class="bg-parentalite text-gray-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 transition-colors text-sm">
+                        Soutien parentalité
+                    </a>
                 </div>
             </div>
-        </section>
 
-        <!-- Team Section -->
-        <section class="py-16 bg-gray-50">
+        </div>
+    </div>
+</section>
+
+
+        <!-- Section Ateliers -->
+        <section id="ateliers-section" class="py-12 bg-white">
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center mb-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Notre Équipe</h2>
-                    <p class="text-lg text-gray-600">Des professionnels passionnés et expérimentés à votre service</p>
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Ateliers Petite Enfance</h2>
+                    <p class="text-gray-600">Des activités ludiques pour l'éveil et le développement</p>
                 </div>
-                <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-sm">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <img src="https://picsum.photos/200/200?random=20" alt="Marie Dubois - Fondatrice et éducatrice spécialisée" class="w-32 h-32 rounded-full object-cover" loading="lazy">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Atelier Artistique -->
+                    <div id="atelier-artistique" class="bg-ateliers/20 rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-ateliers rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-paint-brush text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Atelier Artistique et Sensoriel</h3>
+                            <img src="https://picsum.photos/400/300?random=13" alt="Enfant explorant des textures et couleurs" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                Un atelier d'exploration sensorielle où les enfants découvrent différentes textures, couleurs et matières pour stimuler leur créativité et leurs sens.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Développement de la motricité fine</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Stimulation des 5 sens</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Expression créative libre</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Atelier Lecture -->
+                        <div id="atelier-lecture" class="bg-ateliers/20 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-ateliers rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-book-open text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Atelier Lecture</h3>
+                            <img src="https://picsum.photos/400/300?random=14" alt="Enfant écoutant une histoire" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                    Un moment magique autour des livres pour développer le langage, l'imaginaire et le goût de la lecture.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Développement du vocabulaire</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Stimulation de l'imagination</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Renforcement des liens affectifs</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Atelier Snoezelen -->
+                        <div id="atelier-snoezelen" class="bg-ateliers/20 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-ateliers rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-spa text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Atelier Snoezelen</h3>
+                            <img src="https://picsum.photos/400/300?random=15" alt="Espace Snoezelen avec lumières douces" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                    Un espace de détente multisensoriel inspiré de l'approche Snoezelen pour apaiser et stimuler en douceur.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Environnement apaisant</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Stimulation sensorielle contrôlée</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Régulation émotionnelle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Atelier Massage -->
+                        <div id="atelier-massage" class="bg-ateliers/20 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-ateliers rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-hands text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Atelier Massage Bébé</h3>
+                            <img src="https://picsum.photos/400/300?random=16" alt="Maman massant son bébé" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                    Apprenez les gestes du massage pour renforcer le lien avec votre bébé et favoriser son bien-être.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Renforcement du lien parent-enfant</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Soulagement des tensions</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-ateliers mr-2"></i>
+                                    <span>Amélioration du sommeil</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Formation -->
+            <section id="formation-section" class="py-12 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Formation Professionnelle</h2>
+                    <p class="text-gray-600">Perfectionnez vos compétences avec nos formations spécialisées</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-formation/20 rounded-xl p-8">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-formation rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl text-gray-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Formation pour les Professionnels de la Petite Enfance</h3>
+                        <img src="https://picsum.photos/400/300?random=17" alt="Professionnels en formation" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                    </div>
+                    <p class="text-gray-600 mb-6 text-center leading-relaxed">
+                            Nos formations s'adressent aux professionnels de la petite enfance souhaitant approfondir leurs connaissances et développer de nouvelles compétences.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-2">Contenu de la formation</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-formation mr-3"></i>
+                                        <span>Développement psychomoteur de l'enfant</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-formation mr-3"></i>
+                                        <span>Communication bienveillante</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-formation mr-3"></i>
+                                        <span>Gestion des émotions et conflits</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-star text-formation mr-3"></i>
+                                        <span>Aménagement des espaces</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-2">Modalités</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-clock text-formation mr-3"></i>
+                                <span>Durée : 35 heures</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-calendar text-formation mr-3"></i>
+                                <span>En présentiel ou distanciel</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-certificate text-formation mr-3"></i>
+                                <span>Certification reconnue</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Parentalité -->
+            <section id="parentalite-section" class="py-12 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Soutien à la Parentalité</h2>
+                    <p class="text-gray-600">Un accompagnement personnalisé pour vous soutenir dans votre rôle de parent</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Consultation Visio -->
+                    <div id="consultation-visio" class="bg-parentalite/20 rounded-xl p-6">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-parentalite rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-video text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Consultation Individuelle en Visio</h3>
+                            <img src="https://picsum.photos/400/300?random=18" alt="Consultation en visioconférence" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                Des conseils personnalisés à distance avec nos spécialistes de la petite enfance.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Flexibilité horaire</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Confidentialité garantie</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Conseils adaptés à votre situation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accompagnement Postnatal -->
+                        <div id="accompagnement-postnatal" class="bg-parentalite/20 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-parentalite rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-home text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Accompagnement Post-natal à Domicile</h3>
+                            <img src="https://picsum.photos/400/300?random=19" alt="Accompagnement à domicile" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                Un soutien personnalisé à la maison pour vous accompagner dans les premiers mois.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Aide concrète au quotidien</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Soutien émotionnel</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Conseils pratiques</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Groupe d'Échange -->
+                        <div id="groupe-echange" class="bg-parentalite/20 rounded-xl p-6">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-parentalite rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-users text-gray-700"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Animation Groupe d'Échange</h3>
+                            <img src="https://picsum.photos/400/300?random=20" alt="Groupe de parents en échange" class="w-full h-40 object-cover rounded-lg mb-3" loading="lazy">
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                                Des moments de partage et de soutien entre parents dans une ambiance bienveillante.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Échanges d'expériences</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Soutien mutuel</span>
+                                </div>
+                                <div class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-parentalite mr-2"></i>
+                                    <span>Thématiques variées</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="py-12 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Notre Équipe</h2>
+                    <p class="text-gray-600">Des professionnels passionnés et expérimentés à votre service</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://picsum.photos/200/200?random=21" alt="Marie Dubois - Fondatrice et éducatrice spécialisée" class="w-24 h-24 rounded-full object-cover" loading="lazy">
                         <div class="text-center md:text-left">
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Marie Dubois</h3>
-                            <p class="text-primary font-medium mb-3">Fondatrice & Éducatrice Spécialisée</p>
-                            <p class="text-gray-600 leading-relaxed">
-                                Forte de 15 ans d'expérience dans le domaine de la petite enfance, Marie a créé Petits Pas avec la conviction que chaque enfant mérite un accompagnement bienveillant et personnalisé. Diplômée en psychologie de l'enfant et formée aux approches sensorielles, elle met son expertise au service des familles et des professionnels.
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Marie Dubois</h3>
+                            <p class="text-primary font-medium mb-3 text-sm">Fondatrice & Éducatrice Spécialisée</p>
+                            <p class="text-gray-600 leading-relaxed text-sm">
+                                Forte de 15 ans d'expérience dans le domaine de la petite enfance, Marie a créé Petits Pas avec la conviction que chaque enfant mérite un accompagnement bienveillant et personnalisé.
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
-                        <p class="text-lg text-gray-600">Nous sommes à votre écoute pour répondre à toutes vos questions</p>
+            <!-- Contact Section -->
+            <section id="contact" class="py-12 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Contactez-nous</h2>
+                        <p class="text-gray-600">Nous sommes à votre écoute pour répondre à toutes vos questions</p>
                     </div>
-                    <form id="contactForm" class="bg-gray-50 rounded-2xl p-8">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <form class="bg-gray-50 rounded-xl p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label for="nom" class="block text-gray-700 font-medium mb-2">Nom *</label>
-                                <input type="text" id="nom" name="nom" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                                <label for="nom" class="block text-gray-700 font-medium mb-2 text-sm">Nom *</label>
+                                <input type="text" id="nom" name="nom" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
                             </div>
                             <div>
-                                <label for="prenom" class="block text-gray-700 font-medium mb-2">Prénom *</label>
-                                <input type="text" id="prenom" name="prenom" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
-                            </div>
-                            <div>
-                                <label for="telephone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
-                                <input type="tel" id="telephone" name="telephone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                                <label for="prenom" class="block text-gray-700 font-medium mb-2 text-sm">Prénom *</label>
+                                <input type="text" id="prenom" name="prenom" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
                             </div>
                         </div>
-                        <div class="mb-6">
-                            <label for="statut" class="block text-gray-700 font-medium mb-2">Vous êtes *</label>
-                            <select id="statut" name="statut" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2 text-sm">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                            </div>
+                            <div>
+                                <label for="telephone" class="block text-gray-700 font-medium mb-2 text-sm">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="statut" class="block text-gray-700 font-medium mb-2 text-sm">Vous êtes *</label>
+                            <select id="statut" name="statut" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
                                 <option value="">Sélectionnez votre statut</option>
                                 <option value="entreprise">Entreprise</option>
                                 <option value="particulier">Particulier</option>
                                 <option value="autre">Autre (à préciser)</option>
                             </select>
                         </div>
-                        <div class="mb-6" id="autre-precision" style="display: none;">
-                            <label for="precision" class="block text-gray-700 font-medium mb-2">Précisez votre statut</label>
-                            <input type="text" id="precision" name="precision" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        <div class="mb-4" id="autre-precision" style="display: none;">
+                            <label for="precision" class="block text-gray-700 font-medium mb-2 text-sm">Précisez votre statut</label>
+                            <input type="text" id="precision" name="precision" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
                         </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="Votre message..."></textarea>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2 text-sm">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Votre message..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                        <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-secondary transition-colors text-sm">
                             Envoyer le message
                         </button>
                     </form>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                    <div class="flex items-center space-x-2 mb-3">
+                        <div class="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center text-white font-bold text-xs">
                             PP
                         </div>
-                        <span class="text-xl font-semibold">Petits Pas</span>
+                        <span class="text-lg font-semibold">Petits Pas</span>
                     </div>
-                    <p class="text-gray-300 mb-4 max-w-md">
-                        Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles depuis 2010.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                    <p class="text-gray-300 text-xs mb-3 max-w-md">
+                            Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles depuis 2010.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-4">Navigation</h3>
-                    <ul class="space-y-2">
+                    <h3 class="font-semibold text-sm mb-3">Navigation</h3>
+                    <ul class="space-y-1 text-xs">
                         <li><a href="#accueil" class="text-gray-300 hover:text-white transition-colors">Accueil</a></li>
-                        <li><a href="#ateliers" class="text-gray-300 hover:text-white transition-colors">Ateliers</a></li>
-                        <li><a href="#formation" class="text-gray-300 hover:text-white transition-colors">Formation</a></li>
-                        <li><a href="#parentalite" class="text-gray-300 hover:text-white transition-colors">Parentalité</a></li>
+                        <li><a href="#ateliers-section" class="text-gray-300 hover:text-white transition-colors">Ateliers</a></li>
+                        <li><a href="#formation-section" class="text-gray-300 hover:text-white transition-colors">Formation</a></li>
+                        <li><a href="#parentalite-section" class="text-gray-300 hover:text-white transition-colors">Parentalité</a></li>
                         <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-4">Coordonnées</h3>
-                    <ul class="space-y-2 text-gray-300">
+                    <h3 class="font-semibold text-sm mb-3">Coordonnées</h3>
+                    <ul class="space-y-1 text-xs text-gray-300">
                         <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <i class="fas fa-map-marker-alt mr-2 text-xs"></i>
                             <span>123 Rue de l'Enfance, 75000 Paris</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-phone mr-3"></i>
-                            <span>01 23 45 67 89</span>
+                            <i class="fas fa-phone mr-2 text-xs"></i>
+                            <span>06 95 56 00 06</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3"></i>
-                            <span>contact@petitspas.fr</span>
+                            <i class="fas fa-envelope mr-2 text-xs"></i>
+                            <span>amel.hrira@yahoo.fr</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Petits Pas - Tous droits réservés</p>
+            <div class="border-t border-gray-700 mt-6 pt-4 text-center text-gray-400 text-xs">
+                <p>&copy; 2025 Parentalité et Petite Enfance - Tous droits réservés</p>
             </div>
         </div>
     </footer>
+
+    <style>
+        /* Styles CSS pour le menu compact */
+        .nav-link-compact {
+            @apply flex items-center space-x-1 text-gray-700 font-medium px-2 py-1 rounded-lg transition-all duration-300 text-sm;
+        }
+        
+        .nav-link-compact:hover {
+            @apply text-primary bg-primary/5;
+        }
+        
+        .nav-icon-compact {
+            @apply w-4 h-4 flex items-center justify-center text-xs;
+        }
+        
+        .nav-text {
+            @apply whitespace-nowrap;
+        }
+        
+        .nav-dropdown-compact {
+            @apply relative;
+        }
+        
+        .nav-dropdown-menu-compact {
+            @apply absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-menu opacity-0 invisible transition-all duration-300 transform -translate-y-2;
+            z-index: 1000;
+        }
+        
+        .nav-dropdown-compact:hover .nav-dropdown-menu-compact {
+            @apply opacity-100 visible transform translate-y-0;
+        }
+        
+        .nav-dropdown-item-compact {
+            @apply flex items-center space-x-2 px-3 py-2 text-gray-700 transition-colors duration-200 border-b border-gray-100 last:border-b-0 text-sm;
+        }
+        
+        .nav-dropdown-item-compact:hover {
+            @apply bg-gray-50;
+        }
+    </style>
 
     <script>
         // Navigation handling
@@ -403,13 +643,23 @@
         });
 
         // Form submission handling
-        //const contactForm = document.querySelector('form');
-        //contactForm.addEventListener('submit', function(e) {
-            //e.preventDefault();
-            //alert('Merci pour votre message ! Nous vous recontacterons très rapidement.');
-            //this.reset();
-            //autrePrecision.style.display = 'none';
-        //});
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous recontacterons très rapidement.');
+            this.reset();
+            autrePrecision.style.display = 'none';
+        });
+
+        // Effet de flou sur le header au scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('backdrop-blur-md');
+            } else {
+                header.classList.remove('backdrop-blur-md');
+            }
+        });
     </script>
 </body>
 </html>
