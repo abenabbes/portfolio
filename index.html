@@ -88,7 +88,8 @@
                     <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors">Accueil</a>
                     <div class="relative group">
                         <button class="text-gray-700 hover:text-primary font-medium transition-colors flex items-center">
-                            Ateliers petite enfance <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            Ateliers petite enfance 
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </button>
                         <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                             <a href="#atelier-artistique" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier artistique et sensoriel</a>
@@ -112,9 +113,39 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <button class="md:hidden text-gray-700">
+                <button id="mobile-menu-toggle" class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+                <!-- Mobile menu (hidden by default) -->
+                <div id="mobile-menu" class="md:hidden mt-4 space-y-2 hidden flex-col">
+                <a href="#accueil" class="block text-gray-700 hover:text-primary font-medium">Accueil</a>
+
+                <!-- Sous-menu Ateliers -->
+                <div>
+                    <span class="block text-gray-700 font-medium">Ateliers petite enfance</span>
+                    <ul class="ml-4 space-y-1">
+                    <li><a href="#atelier-artistique" class="text-sm text-gray-600 hover:text-primary">Atelier artistique et sensoriel</a></li>
+                    <li><a href="#atelier-lecture" class="text-sm text-gray-600 hover:text-primary">Atelier lecture</a></li>
+                    <li><a href="#atelier-snoezelen" class="text-sm text-gray-600 hover:text-primary">Atelier Snoezelen</a></li>
+                    <li><a href="#atelier-massage" class="text-sm text-gray-600 hover:text-primary">Atelier massage bébé</a></li>
+                    </ul>
+                </div>
+
+                <a href="#formation" class="block text-gray-700 hover:text-primary font-medium">Formation pour les pros</a>
+
+                <!-- Sous-menu Soutien -->
+                <div>
+                    <span class="block text-gray-700 font-medium">Soutien à la parentalité</span>
+                    <ul class="ml-4 space-y-1">
+                    <li><a href="#consultation-visio" class="text-sm text-gray-600 hover:text-primary">Consultation visio</a></li>
+                    <li><a href="#accompagnement-postnatal" class="text-sm text-gray-600 hover:text-primary">Accompagnement post-natal</a></li>
+                    <li><a href="#groupe-echange" class="text-sm text-gray-600 hover:text-primary">Groupe d’échange</a></li>
+                    </ul>
+                </div>
+
+                <a href="#contact" class="block bg-primary text-white px-4 py-2 rounded hover:bg-secondary text-center">Contact</a>
+                </div>
+
             </div>
         </nav>
     </header>
@@ -564,7 +595,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-2 text-xs"></i>
-                            <span>amel.hrira@yahoo.fr</span>
+                            <span>parentalitepes@yahoo.com</span>
                         </li>
                     </ul>
                 </div>
@@ -574,47 +605,6 @@
             </div>
         </div>
     </footer>
-
-    <style>
-        /* Styles CSS pour le menu compact */
-        .nav-link-compact {
-            @apply flex items-center space-x-1 text-gray-700 font-medium px-2 py-1 rounded-lg transition-all duration-300 text-sm;
-        }
-        
-        .nav-link-compact:hover {
-            @apply text-primary bg-primary/5;
-        }
-        
-        .nav-icon-compact {
-            @apply w-4 h-4 flex items-center justify-center text-xs;
-        }
-        
-        .nav-text {
-            @apply whitespace-nowrap;
-        }
-        
-        .nav-dropdown-compact {
-            @apply relative;
-        }
-        
-        .nav-dropdown-menu-compact {
-            @apply absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-menu opacity-0 invisible transition-all duration-300 transform -translate-y-2;
-            z-index: 1000;
-        }
-        
-        .nav-dropdown-compact:hover .nav-dropdown-menu-compact {
-            @apply opacity-100 visible transform translate-y-0;
-        }
-        
-        .nav-dropdown-item-compact {
-            @apply flex items-center space-x-2 px-3 py-2 text-gray-700 transition-colors duration-200 border-b border-gray-100 last:border-b-0 text-sm;
-        }
-        
-        .nav-dropdown-item-compact:hover {
-            @apply bg-gray-50;
-        }
-    </style>
-
     <script>
         // Navigation handling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -659,6 +649,15 @@
             } else {
                 header.classList.remove('backdrop-blur-md');
             }
+        });
+    </script>
+    <!-- Script mobile menu -->
+    <script>
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
