@@ -4,71 +4,68 @@
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petits Pas - Entreprise Petite Enfance</title>
-    <meta name="description" content="Accompagnement bienveillant pour les enfants et les familles - Ateliers, formations professionnelles et soutien à la parentalité">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<link rel="stylesheet" href="site.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'parentalite': '#93c5fd',
-                        'ateliers': '#fbcfe8',
-                        'formation': '#d8b4fe',
-                        'primary': '#4f46e5',
-                        'secondary': '#7e22ce',
-                        'accent': '#f59e0b'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
-                        'menu': '0 8px 30px rgba(0, 0, 0, 0.12)'
-                    }
-                }
-            }
+    <title>Parentalité et petite enfance sereine | Ateliers Parents-Enfants en île de france</title>
+    <meta name="description" content="Accompagnement bienveillant pour les enfants et les familles - Ateliers, formations professionnelles et soutien à la parentalité. Découvrez nos ateliers et animations pour parents et jeunes enfants en île de france. Un accompagnement vers une parentalité sereine et un développement épanoui de votre enfant.">
+    <meta name="keywords" content="mot clé 1, mot clé 2, mot clé 3">
+    <meta name="author" content="Amel BEN ABBES - Entreprise Petite Enfance">
+    <!-- TODO A completer   -->
+    <meta name="robots" content="index, follow">
+    <!-- TODO A completer   -->
+    <link rel="canonical" href="https://abenabbes.github.io/portfolio/">
+    <!-- Métadonnées sociales (optionnel mais recommandé) -->
+    <meta property="og:title" content="Parentalité et petite enfance sereine | Ateliers à [Votre Ville]">
+    <meta property="og:description" content="Des ateliers ludiques pour renforcer le lien parent-enfant et vivre une parentalité épanouie.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abenabbes.github.io/portfolio/">
+    <meta property="og:image" content="https://abenabbes.github.io/portfolio/img/votre-belle-image-partage.jpg"> 
+    <meta property="og:site_name" content="Parentalité et petite enfance sereine">
+    <!-- etc. selon ce que tu veux partager sur les réseaux -->
+
+    <!-- Metadonnées Twitter (optionnel mais recommandé) -->
+    <!-- Pour contrôler l'apparence de votre lien lorsqu'il est partagé sur Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Parentalité et petite enfance sereine | Ateliers à [Votre Ville]">
+    <meta name="twitter:description" content="Des ateliers ludiques pour renforcer le lien parent-enfant et vivre une parentalité épanouie.">
+    <meta name="twitter:image" content="https://www.votre-site-web.fr/images/votre-belle-image-partage.jpg"> <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">    
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"> 
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- (Optionnel) lien vers le fichier sitemap XML -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+   <!-- CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="css/site.css">
+
+    <!-- Javascript-->
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <script src="js/tailwind-config.js"></script>    
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Parentalité et petite enfance sereine",
+        "description": "Ateliers et animations pour accompagner les parents et les jeunes enfants vers une relation sereine et épanouie.",
+        "address": {
+            "@type": "PostalAddress",            
+            "addressLocality": "Voisins-Le-Bretonneux",
+            "postalCode": "78960",
+            "addressCountry": "FR"
+        },
+        "telephone": "0695560006",
+        "email": "parentalitepes@yahoo.com"
+        "url": "https://abenabbes.github.io/portfolio/"
         }
     </script>
 	<!-- Script EmailJS : pour intéger l'envoi de mail -->
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-	<script type="text/javascript">
-	   (function() {
-		  // Initialiser avec votre Public Key
-		  emailjs.init({
-			 publicKey: "308KNvDrpU6XfF-Ky",
-		  });
-	   })();
-	</script>
-	<script type="text/javascript">
-		// Attendre que le document soit chargé
-		window.onload = function() {
-			// Cibler votre formulaire par son ID
-			document.getElementById('contactForm').addEventListener('submit', function(event) {
-				event.preventDefault(); // EMPÊCHE la soumission HTML par défaut (et la redirection Formspree !)
-
-				// Envoyer le formulaire avec EmailJS
-				// emailjs.sendForm('VOTRE_SERVICE_ID', 'VOTRE_TEMPLATE_ID', this)
-				emailjs.sendForm('service_s8xelha', 'template_pfxbnlb', this)
-					.then(function() {
-						console.log('E-mail envoyé avec succès !');
-
-						// **********************************************
-						// C'EST ICI QUE VOUS FAITES LA REDIRECTION !
-						// **********************************************
-						window.location.href = 'https://abenabbes.github.io/portfolio/remerciment.html';
-						
-					}, function(error) {
-						console.log('ÉCHEC de l\'envoi...', error);
-						// Optionnel : Afficher un message d'erreur
-						alert("Une erreur est survenue lors de l'envoi.");
-					});
-			});
-		}
-	</script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!-- Charger EmailJS
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+     -->
+    <script src="js/email.min.js"></script>
+    <!-- Charger ton script personnalisé -->
+    <script src="js/email.js"></script>    
 </head>
 <body class="min-h-screen bg-white font-sans">
    <!-- Header -->
@@ -79,13 +76,13 @@
         <!-- Logo -->
         <div class="flex items-center space-x-3">
           <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-lg">
-            PP
+            PE
           </div>
         </div>
 
         <!-- Navigation Desktop -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors">Accueil</a>
+          <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors" title="Accueil">Accueil</a>
 
           <div class="relative group">
             <button class="text-gray-700 hover:text-primary font-medium transition-colors flex items-center">
@@ -93,14 +90,14 @@
               <i class="fas fa-chevron-down ml-1 text-xs"></i>
             </button>
             <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <a href="#atelier-artistique" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier artistique et sensoriel</a>
-              <a href="#atelier-lecture" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier lecture</a>
-              <a href="#atelier-snoezelen" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier Snoezelen</a>
-              <a href="#atelier-massage" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors">Atelier massage bébé</a>
+              <a href="#atelier-artistique" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors" title="Atelier artistique et sensoriel">Atelier artistique et sensoriel</a>
+              <a href="#atelier-lecture" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors" title="Atelier lecture">Atelier lecture</a>
+              <a href="#atelier-snoezelen" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors" title="Atelier Snoezelen">Atelier Snoezelen</a>
+              <a href="#atelier-massage" class="block px-4 py-3 text-gray-700 hover:bg-ateliers hover:text-primary transition-colors" title="Atelier massage bebé">Atelier massage bébé</a>
             </div>
           </div>
 
-          <a href="#formation" class="text-gray-700 hover:text-primary font-medium transition-colors">Formation pour les pros</a>
+          <a href="#formation" class="text-gray-700 hover:text-primary font-medium transition-colors" title="Formation">Formation pour les pros</a>
 
           <div class="relative group">
             <button class="text-gray-700 hover:text-primary font-medium transition-colors flex items-center">
@@ -504,7 +501,7 @@
                             <h2 class="text-2xl font-bold text-gray-800 mb-2">Contactez-nous</h2>
                         <p class="text-gray-600">Nous sommes à votre écoute pour répondre à toutes vos questions</p>
                     </div>
-                    <form class="bg-gray-50 rounded-xl p-6">
+                    <form id="contactForm" class="bg-gray-50 rounded-xl p-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label for="nom" class="block text-gray-700 font-medium mb-2 text-sm">Nom *</label>
@@ -565,13 +562,13 @@
                             Votre partenaire de confiance pour l'épanouissement des tout-petits et le soutien des familles depuis 2010.
                         </p>
                         <div class="flex space-x-3">
-                            <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs">
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xs" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -579,11 +576,11 @@
                 <div>
                     <h3 class="font-semibold text-sm mb-3">Navigation</h3>
                     <ul class="space-y-1 text-xs">
-                        <li><a href="#accueil" class="text-gray-300 hover:text-white transition-colors">Accueil</a></li>
-                        <li><a href="#ateliers-section" class="text-gray-300 hover:text-white transition-colors">Ateliers</a></li>
-                        <li><a href="#formation-section" class="text-gray-300 hover:text-white transition-colors">Formation</a></li>
-                        <li><a href="#parentalite-section" class="text-gray-300 hover:text-white transition-colors">Parentalité</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#accueil" class="text-gray-300 hover:text-white transition-colors" title="Accueil">Accueil</a></li>
+                        <li><a href="#ateliers-section" class="text-gray-300 hover:text-white transition-colors" title="Ateliers">Ateliers</a></li>
+                        <li><a href="#formation-section" class="text-gray-300 hover:text-white transition-colors" title="Formation">Formation</a></li>
+                        <li><a href="#parentalite-section" class="text-gray-300 hover:text-white transition-colors" title="Parentalité">Parentalité</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors" title="Nous Contacter">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -637,13 +634,13 @@
         });
 
         // Form submission handling
-        const contactForm = document.querySelector('form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci pour votre message ! Nous vous recontacterons très rapidement.');
-            this.reset();
-            autrePrecision.style.display = 'none';
-        });
+        //const contactForm = document.querySelector('form');
+        //contactForm.addEventListener('submit', function(e) {
+        //   e.preventDefault();
+        //    alert('Merci pour votre message ! Nous vous recontacterons très rapidement.');
+        //    this.reset();
+        //    autrePrecision.style.display = 'none';
+        //});
 
         // Effet de flou sur le header au scroll
         window.addEventListener('scroll', function() {
